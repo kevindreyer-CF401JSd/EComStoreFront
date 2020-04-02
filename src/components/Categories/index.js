@@ -17,7 +17,7 @@ const Categories = props => {
   // console.log('props categories',props.categories)
   return (
     <section className="Categories">
-      <div>Sort By Category, from categories component</div>
+      <div>Filter By Category</div>
       {props.categories.categories.map(category => (
           <Button key={category.name} onClick={() => {
             props.selectCategory(category.name) }}>{category.name}</Button>

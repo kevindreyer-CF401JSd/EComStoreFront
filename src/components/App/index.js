@@ -7,6 +7,7 @@ import Header from "./header";
 import Footer from "./footer";
 import Products from "../Products";
 import Categories from "../Categories";
+import Cart from "../Cart"
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Header />
         <Products />
         <Categories />
+        <Cart />
         <Footer />
       </Container>
     </Provider>

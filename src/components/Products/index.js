@@ -14,7 +14,9 @@ const mapDispatchToProps = {
   nuts: actions.nuts,
   reset: actions.reset,
   addToCart: actions.addToCart,
-  selectCategory: actions.selectCategory 
+  selectCategory: actions.selectCategory,
+  increment: actions.increment,
+  decrement: actions.decrement
 };
 
 const Products = props => {
@@ -36,7 +38,11 @@ const Products = props => {
               <td>{product.category}</td>
               <td>{product.price}</td>
               <td>
-                <Button onClick={props.increment}>Add Too Cart</Button>
+                <Button 
+                  onClick={() => {
+                    props.increment(product.name) }}
+                >Add Too Cart
+                </Button>
                 <Button onClick={props.decrement}>Remove From Cart</Button>
               </td>
             </tr>
