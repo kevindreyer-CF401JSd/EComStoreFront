@@ -14,6 +14,7 @@ export default function App() {
       <Container className="App">
         <Header />
         <Products />
+        <Categories />
         <Footer />
       </Container>
     </Provider>

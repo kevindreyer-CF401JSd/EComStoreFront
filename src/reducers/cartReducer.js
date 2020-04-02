@@ -1,6 +1,6 @@
 const initialState = 0;
 
-const cartCount = (items = initialState, action) => {
+const cartReducer = (items = initialState, action) => {
   switch (action.type) {
     case 'INCREMENT':
       console.log('items INCREMENT',items)
@@ -15,4 +15,4 @@ const cartCount = (items = initialState, action) => {
   }
 }
 
-export default cartCount
+export default cartReducer

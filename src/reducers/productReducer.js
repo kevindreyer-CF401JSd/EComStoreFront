@@ -1,4 +1,4 @@
-const productState = {
+const initialState = {
   products: [
     {
       category: "Fruits",
@@ -66,33 +66,24 @@ const productState = {
   ]
 };
 
-const inventoryCounter = (state = productState, action) => {
+const productReducer = (state = initialState.products, action) => {
   let products;
+  // console.log('in prod reduc',action)
   switch (action.type) {
-    case "FRUITS":
-      products = state.products.filter(
-        product => product.category === "Fruits"
-      );
-      console.log("fruits", products);
-      return { products };
-    case "VEGETABLES":
-      products = state.products.filter(
-        product => product.category === "Vegetables"
-      );
-      console.log("veg", products);
-      return { products };
-    case "NUTS":
-      products = state.products.filter(product => product.category === "Nuts");
-      console.log("nuts", products);
-      return { products };
+    case 'SELECT_CATEGORY':
+      if (!action.payload) return initialState;
+      products = initialState.products.filter(product => product.category === action.payload )
+      // console.log('sel cat', products)
+      return products
     case "RESET":
-      return productState;
+      // console.log("reset", state);
+      return initialState.products;
     default:
       return state;
   }
 };
 
-export default inventoryCounter;
+export default productReducer;
 
 export function fruits(name) {
   return {

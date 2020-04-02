@@ -46,3 +46,10 @@ export function addToCart(name) {
     payload: name
   };
 }
+
+export function selectCategory(name) {
+  return {
+    type: 'SELECT_CATEGORY',
+    payload: name
+  }
+}
