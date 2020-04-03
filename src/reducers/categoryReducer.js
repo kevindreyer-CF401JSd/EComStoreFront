@@ -12,6 +12,8 @@ const categoryReducer = (state = initialState, action) => {
       return { ...state, selectedCategory: action.payload }
     case "RESET":
       return initialState;
+    case "FETCH_ALL_PRODUCTS":
+      return action.payload;
     default:
       return state
   }

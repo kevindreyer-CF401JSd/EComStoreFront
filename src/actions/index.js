@@ -33,3 +33,19 @@ export function selectCategory(name) {
     payload: name
   }
 }
+
+export function fetchAllProducts() {
+  console.log('in fetchallproducts')
+  return async dispatch => {
+    const raw = await fetch('http://localhost:3032/products');
+    const data = await raw.json();
+    return dispatch(fetchAllProductsAction(data));
+  };
+}
+
+function fetchAllProductsAction(data) {
+  return {
+    type: 'FETCH_ALL_PRODUCTS',
+    payload: data
+  };
+}
