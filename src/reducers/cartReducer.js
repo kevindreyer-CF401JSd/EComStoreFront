@@ -1,19 +1,26 @@
 const initialState = { 
-  count: 0,
-  contents: []
+  totalCount: 0,
+  contents: {}
 };
-// const initialState = [];
-
 
 const cartReducer = (cart = initialState, action) => {
   switch (action.type) {
     case 'INCREMENT':
-      cart.contents.push(action.payload)
-      cart.count = cart.count + 1
-      console.log('cartReduc cart',cart)
-      return cart;
+      let newContents = cart.contents
+      if (!(action.payload in newContents)) {
+        newContents[action.payload] = 1
+      } else {
+        newContents[action.payload] = newContents[action.payload] + 1
+      }
+      return {
+        totalCount: cart.totalCount + 1,
+        contents: newContents
+      }
     case 'DECREMENT':
-      return cart;
+      return {
+        totalCount: cart.totalCount - 1,
+        contents: [...cart.contents]
+      }
     case 'RESET':
       return cart;
     default:

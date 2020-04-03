@@ -7,12 +7,11 @@ const initialState = {
 };
 
 const categoryReducer = (state = initialState, action) => {
-  // console.log('cat reducer',state)
   switch (action.type) {
     case 'SELECT_CATEGORY':
-      // if (!action.payload) return initialState
-      // products = initialState.products.filter(product => product.name === action.payload )
       return { ...state, selectedCategory: action.payload }
+    case "RESET":
+      return initialState;
     default:
       return state
   }

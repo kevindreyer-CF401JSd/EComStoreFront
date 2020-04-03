@@ -68,15 +68,12 @@ const initialState = {
 
 const productReducer = (state = initialState.products, action) => {
   let products;
-  // console.log('in prod reduc',action)
   switch (action.type) {
     case 'SELECT_CATEGORY':
       if (!action.payload) return initialState;
       products = initialState.products.filter(product => product.category === action.payload )
-      // console.log('sel cat', products)
       return products
     case "RESET":
-      // console.log("reset", state);
       return initialState.products;
     default:
       return state;
@@ -84,30 +81,3 @@ const productReducer = (state = initialState.products, action) => {
 };
 
 export default productReducer;
-
-export function fruits(name) {
-  return {
-    type: "FRUITS",
-    payload: name
-  };
-}
-
-export function vegetables(name) {
-  return {
-    type: "VEGETABLES",
-    payload: name
-  };
-}
-
-export function nuts(name) {
-  return {
-    type: "NUTS",
-    payload: name
-  };
-}
-
-export function reset() {
-  return {
-    type: "RESET"
-  };
-}
