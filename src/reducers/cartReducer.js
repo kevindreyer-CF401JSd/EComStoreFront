@@ -17,9 +17,10 @@ const cartReducer = (cart = initialState, action) => {
         contents: newContents
       }
     case 'DECREMENT':
+      let decContents = cart.contents
       return {
         totalCount: cart.totalCount - 1,
-        contents: [...cart.contents]
+        contents: decContents
       }
     case 'RESET':
       return cart;

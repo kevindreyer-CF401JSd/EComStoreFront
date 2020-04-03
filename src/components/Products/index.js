@@ -43,7 +43,9 @@ const Products = props => {
                     props.increment(product.name) }}
                 >Add Too Cart
                 </Button>
-                <Button onClick={props.decrement}>Remove From Cart</Button>
+                <Button onClick={() => {
+                  props.decrement(product.name)}}
+                >Remove From Cart</Button>
               </td>
             </tr>
           ))}

@@ -16,7 +16,22 @@ const Cart = props => {
   return (
     <div>
         <div>Cart total items count: {props.cart.totalCount} </div> 
-        <div>Items in Cart: {Object.entries(props.cart.contents)} </div>
+        <Table variant="sm" striped>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.keys(props.cart.contents).map( (key) => (
+              <tr key={key}>
+                <td>{key}</td>
+                <td>{props.cart.contents[key]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
     </div>
   )
 }
