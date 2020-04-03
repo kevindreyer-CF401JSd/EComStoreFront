@@ -4,7 +4,7 @@ import { Table, Button } from 'react-bootstrap';
 import * as actions from "../../actions";
 
 const mapStateToProps = state => {
-  console.log('state',state)
+  // console.log('state',state)
   return { 
     products: state.productReducer,
     categories: state.categoryReducer
@@ -23,6 +23,7 @@ const mapDispatchToProps = {
 const Products = ({
   fetchAllProducts,
   products,
+  categories,
   increment,
   decrement
 }) => {
