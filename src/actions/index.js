@@ -35,7 +35,6 @@ export function selectCategory(name) {
 }
 
 export function fetchAllProducts() {
-  console.log('in fetchallproducts')
   return async dispatch => {
     const raw = await fetch('http://localhost:3032/products');
     const data = await raw.json();

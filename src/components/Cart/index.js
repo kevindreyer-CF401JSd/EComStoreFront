@@ -5,14 +5,14 @@ import { Table } from "react-bootstrap";
 
 const mapStateToProps = state => {
   return { 
-    cart: state.cart,
+    cart: state.cartReducer,
   };
 };
 
 const mapDispatchToProps = { reset, increment, decrement };
 
 const Cart = props => {
-  console.log('cart comp',props.cart.contents)
+  // console.log('cart comp',props.cart.contents)
   return (
     <div>
         <div>Cart total items count: {props.cart.totalCount} </div> 

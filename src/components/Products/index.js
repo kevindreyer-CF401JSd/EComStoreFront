@@ -4,7 +4,11 @@ import { Table, Button } from 'react-bootstrap';
 import * as actions from "../../actions";
 
 const mapStateToProps = state => {
-  return { products: state.products };
+  console.log('state',state)
+  return { 
+    products: state.productReducer,
+    categories: state.categoryReducer
+  };
 };
 
 const mapDispatchToProps = { 
@@ -17,8 +21,8 @@ const mapDispatchToProps = {
 };
 
 const Products = ({
-  products,
   fetchAllProducts,
+  products,
   increment,
   decrement
 }) => {
@@ -26,7 +30,7 @@ const Products = ({
     fetchAllProducts();
   };
   useEffect(() => fetchData(), []); //eslint-disable-line
-  console.log('products',products)
+  console.log('in prod comp',products)
   return (
     <section className="Product">
       <Table variant="sm" striped bordered>
