@@ -1,21 +1,23 @@
-const initialState = ['testitem1','testitem2'];
-let cart = initialState
+const initialState = { 
+  count: 0,
+  contents: []
+};
+// const initialState = [];
 
-const cartReducer = (state = cart, action) => {
-  console.log('in cart reduc',action)
+
+const cartReducer = (cart = initialState, action) => {
   switch (action.type) {
     case 'INCREMENT':
-      cart.push(action.payload)
-      console.log('cart INCREMENT',cart)
-      return cart
+      cart.contents.push(action.payload)
+      cart.count = cart.count + 1
+      console.log('cartReduc cart',cart)
+      return cart;
     case 'DECREMENT':
-      console.log('cart DECREMENT',cart)
-      cart.splice(0,1)
-      return cart
+      return cart;
     case 'RESET':
-      return initialState;
+      return cart;
     default:
-      return initialState;
+      return cart;
   }
 }
 
