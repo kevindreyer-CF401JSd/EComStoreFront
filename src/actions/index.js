@@ -1,24 +1,4 @@
 
-export function fruits(name) {
-  return {
-    type: "FRUITS",
-    payload: name
-  };
-}
-
-export function vegetables(name) {
-  return {
-    type: "VEGETABLES",
-    payload: name
-  };
-}
-
-export function nuts(name) {
-  return {
-    type: "NUTS",
-    payload: name
-  };
-}
 
 export function reset() {
   return {

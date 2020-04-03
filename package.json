@@ -22,7 +22,9 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "serveJson": "json-server --watch db.json --port 3032",
+    "serveReact": "react-scripts start",
+    "start": "concurrently \"npm:serveJson\" \"npm:serveReact\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

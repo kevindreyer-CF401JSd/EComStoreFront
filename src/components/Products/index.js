@@ -9,9 +9,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = { 
-  fruits: actions.fruits, 
-  vegetables: actions.vegetables, 
-  nuts: actions.nuts,
   reset: actions.reset,
   addToCart: actions.addToCart,
   selectCategory: actions.selectCategory,
