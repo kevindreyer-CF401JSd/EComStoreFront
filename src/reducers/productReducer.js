@@ -5,13 +5,13 @@ const initialState = {
 };
 
 const productReducer = (state = initialState, action) => {
-  console.log('in prod reduc', state)
+  // console.log('in prod reduc', state)
   const inventory = state.inventory
   switch (action.type) {
     case 'SELECT_CATEGORY':
       const products = [...inventory]
-      console.log('select cat action',action)
-      console.log('select cat state',state)
+      // console.log('select cat action',action)
+      // console.log('select cat state',state)
       if (action.payload === '') return {inventory: products, list: products};
       return {
         inventory: state.inventory,

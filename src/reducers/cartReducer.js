@@ -4,9 +4,11 @@ const initialState = {
 };
 
 const cartReducer = (cart = initialState, action) => {
+  console.log('in cart reduc',action)
+  const cartContents = cart.contents
   switch (action.type) {
     case 'INCREMENT':
-      let newContents = cart.contents
+      let newContents = {...cartContents}
       if (!(action.payload in newContents)) {
         newContents[action.payload] = 1
       } else {
