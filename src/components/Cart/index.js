@@ -12,7 +12,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = { reset, increment, decrement };
 
 const Cart = props => {
-  // console.log('cart comp',props.cart.contents)
   return (
     <div>
         <div>Cart total items count: {props.cart.totalCount} </div> 

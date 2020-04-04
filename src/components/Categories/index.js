@@ -13,7 +13,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = { selectCategory, reset, fetchAllProducts };
 
 const Categories = props => {
-  console.log('in cat comp',props)
   return (
     <section className="Categories">
       <div>Filter By Category: {props.categories.selectedCategory}</div>

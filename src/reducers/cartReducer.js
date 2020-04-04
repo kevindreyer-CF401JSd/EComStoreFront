@@ -4,7 +4,6 @@ const initialState = {
 };
 
 const cartReducer = (cart = initialState, action) => {
-  console.log('in cart reduc',action)
   const cartContents = cart.contents
   switch (action.type) {
     case 'INCREMENT':
@@ -29,8 +28,6 @@ const cartReducer = (cart = initialState, action) => {
         totalCount: cart.totalCount - 1,
         contents: decContents
       }
-    // case 'RESET':
-    //   return cart;
     default:
       return cart;
   }

@@ -33,7 +33,6 @@ const Products = ({
   };
 
   useEffect(() => fetchData(), []); //eslint-disable-line
-  console.log('in prod comp',products)
 
   return (
     <section className="Product">
@@ -57,9 +56,6 @@ const Products = ({
                     increment(product.name) }}
                 >Add Too Cart
                 </Button>
-                {/* <Button onClick={() => {
-                  decrement(product.name)}}
-                >Remove From Cart</Button> */}
               </td>
             </tr>
           ))}
