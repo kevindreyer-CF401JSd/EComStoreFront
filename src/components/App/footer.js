@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="App-footer">
       <h4>
-        Copy write Kevin Dreyer - my E-Commerce Application - js-401d34-class-36
+      &copy; 2020 - Kevin Dreyer - my E-Commerce Application - js-401d34-class-36
       </h4>
     </footer>
   );

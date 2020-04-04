@@ -10,8 +10,6 @@ const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SELECT_CATEGORY':
       return { ...state, selectedCategory: action.payload }
-    case "RESET":
-      return initialState;
     default:
       return state
   }

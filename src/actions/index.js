@@ -1,24 +1,4 @@
 
-export function fruits(name) {
-  return {
-    type: "FRUITS",
-    payload: name
-  };
-}
-
-export function vegetables(name) {
-  return {
-    type: "VEGETABLES",
-    payload: name
-  };
-}
-
-export function nuts(name) {
-  return {
-    type: "NUTS",
-    payload: name
-  };
-}
 
 export function reset() {
   return {
@@ -52,4 +32,22 @@ export function selectCategory(name) {
     type: 'SELECT_CATEGORY',
     payload: name
   }
+}
+
+export function fetchAllProducts() {
+  return async dispatch => {
+    const raw = await fetch('http://localhost:3032/products');
+    const data = await raw.json();
+    return dispatch(fetchAllProductsAction(data));
+  };
+}
+
+function fetchAllProductsAction(data) {
+  return {
+    type: 'FETCH_ALL_PRODUCTS',
+    payload: {
+      inventory: data,
+      list: data
+    }
+  };
 }

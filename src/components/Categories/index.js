@@ -1,16 +1,18 @@
 import React from "react";
 import { Button } from 'react-bootstrap';
 import { connect } from "react-redux";
-import { selectCategory, reset } from '../../actions'
+import { selectCategory, reset, fetchAllProducts } from '../../actions'
 
 const mapStateToProps = state => {
-  return { categories: state.categories };
+  return { 
+    products: state.productReducer,
+    categories: state.categoryReducer
+  };
 };
 
-const mapDispatchToProps = { selectCategory, reset };
+const mapDispatchToProps = { selectCategory, reset, fetchAllProducts };
 
 const Categories = props => {
-  console.log('props categories',props.categories)
   return (
     <section className="Categories">
       <div>Filter By Category: {props.categories.selectedCategory}</div>
@@ -18,7 +20,8 @@ const Categories = props => {
           <Button key={category.name} onClick={() => {
             props.selectCategory(category.name) }}>{category.name}</Button>
       ))}
-      <Button onClick={props.reset}>Reset</Button>
+      <Button onClick={() => {
+            props.selectCategory('') }}>Reset</Button>
     </section>
   );
 };

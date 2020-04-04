@@ -1,26 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Table, Button } from 'react-bootstrap';
 import * as actions from "../../actions";
 
 const mapStateToProps = state => {
-  // console.log('mstp in products',state)
-  return { products: state.products };
+  // console.log('state',state)
+  return { 
+    products: state.productReducer,
+    categories: state.categoryReducer
+  };
 };
 
 const mapDispatchToProps = { 
-  fruits: actions.fruits, 
-  vegetables: actions.vegetables, 
-  nuts: actions.nuts,
   reset: actions.reset,
   addToCart: actions.addToCart,
   selectCategory: actions.selectCategory,
+  fetchAllProducts: actions.fetchAllProducts,
   increment: actions.increment,
   decrement: actions.decrement
 };
 
-const Products = props => {
-  // console.log('in Prod compo',props.products)
+const Products = ({
+  fetchAllProducts,
+  products,
+  categories,
+  increment,
+  decrement
+}) => {
+
+  const fetchData = () => {
+    fetchAllProducts();
+  };
+
+  useEffect(() => fetchData(), []); //eslint-disable-line
+
   return (
     <section className="Product">
       <Table variant="sm" striped bordered>
@@ -32,7 +45,7 @@ const Products = props => {
           </tr>
         </thead>
         <tbody>
-          {props.products.map(product => (
+          {products.list.map(product => (
             <tr key={product.name}>
               <td>{product.name}</td>
               <td>{product.category}</td>
@@ -40,12 +53,9 @@ const Products = props => {
               <td>
                 <Button 
                   onClick={() => {
-                    props.increment(product.name) }}
+                    increment(product.name) }}
                 >Add Too Cart
                 </Button>
-                <Button onClick={() => {
-                  props.decrement(product.name)}}
-                >Remove From Cart</Button>
               </td>
             </tr>
           ))}
