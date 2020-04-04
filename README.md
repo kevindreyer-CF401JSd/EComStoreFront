@@ -21,4 +21,4 @@ E-Commerce StoreFront app using React and Redux
 
 ## Application Screen Capture
 
-![Screen Capture](screencature.png)
+![Screen Capture](./src/screencature.png)
