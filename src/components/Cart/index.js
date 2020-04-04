@@ -21,7 +21,6 @@ const Cart = props => {
             <tr>
               <th>Name</th>
               <th>Count</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
