@@ -19,7 +19,12 @@ const cartReducer = (cart = initialState, action) => {
         contents: newContents
       }
     case 'DECREMENT':
-      let decContents = cart.contents
+      let decContents = {...cartContents}
+      if (decContents[action.payload] === 1) {
+        delete decContents[action.payload]
+      } else {
+        decContents[action.payload] = decContents[action.payload] - 1
+      }
       return {
         totalCount: cart.totalCount - 1,
         contents: decContents

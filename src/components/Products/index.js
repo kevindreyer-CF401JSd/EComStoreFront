@@ -57,9 +57,9 @@ const Products = ({
                     increment(product.name) }}
                 >Add Too Cart
                 </Button>
-                <Button onClick={() => {
+                {/* <Button onClick={() => {
                   decrement(product.name)}}
-                >Remove From Cart</Button>
+                >Remove From Cart</Button> */}
               </td>
             </tr>
           ))}

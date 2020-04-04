@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { reset, increment, decrement } from "../../actions";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 const mapStateToProps = state => {
   return { 
@@ -21,6 +21,7 @@ const Cart = props => {
             <tr>
               <th>Name</th>
               <th>Count</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -28,6 +29,11 @@ const Cart = props => {
               <tr key={key}>
                 <td>{key}</td>
                 <td>{props.cart.contents[key]}</td>
+                <td>
+                  <Button onClick={() => {
+                  props.decrement(key)}}
+                  >Remove From Cart</Button>
+                </td>
               </tr>
             ))}
           </tbody>
