@@ -45,6 +45,9 @@ export function fetchAllProducts() {
 function fetchAllProductsAction(data) {
   return {
     type: 'FETCH_ALL_PRODUCTS',
-    payload: data
+    payload: {
+      inventory: data,
+      list: data
+    }
   };
 }

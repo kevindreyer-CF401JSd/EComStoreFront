@@ -27,11 +27,14 @@ const Products = ({
   increment,
   decrement
 }) => {
+
   const fetchData = () => {
     fetchAllProducts();
   };
+
   useEffect(() => fetchData(), []); //eslint-disable-line
   console.log('in prod comp',products)
+
   return (
     <section className="Product">
       <Table variant="sm" striped bordered>
@@ -43,7 +46,7 @@ const Products = ({
           </tr>
         </thead>
         <tbody>
-          {products.map(product => (
+          {products.list.map(product => (
             <tr key={product.name}>
               <td>{product.name}</td>
               <td>{product.category}</td>

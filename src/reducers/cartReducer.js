@@ -22,8 +22,8 @@ const cartReducer = (cart = initialState, action) => {
         totalCount: cart.totalCount - 1,
         contents: decContents
       }
-    case 'RESET':
-      return cart;
+    // case 'RESET':
+    //   return cart;
     default:
       return cart;
   }
