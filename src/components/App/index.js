@@ -8,12 +8,14 @@ import Footer from "./footer";
 import Products from "../Products";
 import Categories from "../Categories";
 import Cart from "../Cart"
+import Login from "../Login";
 
 export default function App() {
   return (
     <Provider store={store}>
       <Container className="App">
         <Header />
+        <Login />
         <Products />
         <Categories />
         <Cart />
