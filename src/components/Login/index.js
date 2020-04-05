@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { Form, Button } from 'react-bootstrap'
 import * as actions from '../../actions'
+import { useCookie, useMount } from 'react-use'
 
 const mapStateToProps = state => {
   return {
@@ -12,10 +13,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = { 
   logout: actions.userLogOut, 
-  login: actions.userLogIn
+  login: actions.userLogIn,
+  jwtLogin: actions.jwtLogin,
 };
 
-const Login = ({ auth, logout, login }) => {
+const Login = ({ auth, logout, login, jwtLogin }) => {
+  const [authCookie, updateAuthCookie] = useCookie('auth')
   const { register, handleSubmit, reset } = useForm()
 
   const onSubmit = async data => {
@@ -23,6 +26,14 @@ const Login = ({ auth, logout, login }) => {
     await login(data.username, data.password);
     reset()
   }
+
+  useMount(() => {
+    if (authCookie) jwtLogin(authCookie)
+  })
+
+  useEffect(() => {
+    if (authCookie !== auth.token) updateAuthCookie(auth.token)
+  }, [auth.token, authCookie, updateAuthCookie])
 
   const LoginForm = (
     <Form onSubmit={handleSubmit(onSubmit)}>

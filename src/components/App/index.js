@@ -18,8 +18,8 @@ export default function App() {
         <Header />
         <Login />
         <Products />
+        <Categories />
         <Auth>
-          <Categories />
           <Cart />
         </Auth>
         <Footer />

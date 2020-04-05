@@ -75,9 +75,16 @@ export function userLogIn(username, password) {
   }
 }
 
+export function jwtLogin(token) {
+  return async (dispatch) => {
+    const user = verifyToken(token)
+    if (user) dispatch(userLogInAction(user, token))
+  }
+}
+
 function userLogInAction (user) {
   return {
     type: 'USER_LOG_IN',
-    payload: user
+    payload: user,
   }
 }
