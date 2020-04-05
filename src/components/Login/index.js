@@ -2,13 +2,25 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { Form, Button } from 'react-bootstrap'
+import * as actions from '../../actions'
 
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  }
+}
 
-const Login = () => {
+const mapDispatchToProps = { 
+  logout: actions.userLogOut, 
+  login: actions.userLogIn
+};
+
+const Login = ({ auth, logout, login }) => {
   const { register, handleSubmit, reset } = useForm()
 
   const onSubmit = async data => {
     console.log('data',data)
+    await login(data.username, data.password);
     reset()
   }
 
@@ -23,10 +35,10 @@ const Login = () => {
   )
   
   const LogoutButton = (
-    <Button className="Form">Log Out</Button>
+    <Button className="Form" onClick={logout}>Log Out</Button>
   )
 
-  return LoginForm
+  return auth.loggedIn ? LogoutButton : LoginForm
 }
 
-export default Login
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -1,5 +1,4 @@
 
-
 export function reset() {
   return {
     type: "RESET"
@@ -50,4 +49,32 @@ function fetchAllProductsAction(data) {
       list: data
     }
   };
+}
+
+export function userLogOut () {
+  return {
+    type: 'USER_LOG_OUT'
+  }
+}
+
+export function userLogIn(username, password) {
+  return async dispatch => {
+    const raw = await fetch('http://localhost:3333/signin', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${btoa(`${username}:${password}`)}`
+      },
+    })
+    const response = await raw.json()
+    console.log(response)
+    dispatch(userLogInAction(response))
+  }
+}
+
+function userLogInAction (user) {
+  return {
+    type: 'USER_LOG_IN',
+    payload: user
+  }
 }
