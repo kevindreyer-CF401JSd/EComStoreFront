@@ -1,3 +1,4 @@
+import verifyToken from "../lib/verifyToken";
 
 export function reset() {
   return {
@@ -63,12 +64,14 @@ export function userLogIn(username, password) {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Basic ${btoa(`${username}:${password}`)}`
+        Authorization: `Basic ${btoa(`${username}:${password}`)}`,
       },
     })
     const response = await raw.json()
-    console.log(response)
-    dispatch(userLogInAction(response))
+    const user = verifyToken(response.token)
+    console.log('response token',response.token)
+
+    dispatch(userLogInAction(user, response.token))
   }
 }
 

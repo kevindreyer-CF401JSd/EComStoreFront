@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Table, Button } from 'react-bootstrap';
 import * as actions from "../../actions";
+import Auth from "../Auth"
 
 const mapStateToProps = state => {
   // console.log('state',state)
@@ -51,11 +52,13 @@ const Products = ({
               <td>{product.category}</td>
               <td>{product.price}</td>
               <td>
-                <Button 
-                  onClick={() => {
-                    increment(product.name) }}
-                >Add Too Cart
-                </Button>
+                <Auth>
+                  <Button 
+                    onClick={() => {
+                      increment(product.name) }}
+                      >Add Too Cart
+                  </Button>
+                </Auth>
               </td>
             </tr>
           ))}
