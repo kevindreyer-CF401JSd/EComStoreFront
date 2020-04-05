@@ -82,9 +82,10 @@ export function jwtLogin(token) {
   }
 }
 
-function userLogInAction (user) {
+function userLogInAction (user, token) {
   return {
     type: 'USER_LOG_IN',
-    payload: user,
+    user,
+    token,
   }
 }

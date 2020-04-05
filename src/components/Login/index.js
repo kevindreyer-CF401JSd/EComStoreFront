@@ -18,12 +18,12 @@ const mapDispatchToProps = {
 };
 
 const Login = ({ auth, logout, login, jwtLogin }) => {
-  const [authCookie, updateAuthCookie] = useCookie('auth')
+  const [authCookie, updateAuthCookie ] = useCookie('auth')
   const { register, handleSubmit, reset } = useForm()
 
   const onSubmit = async data => {
     console.log('data',data)
-    await login(data.username, data.password);
+    login(data.username, data.password);
     reset()
   }
 
