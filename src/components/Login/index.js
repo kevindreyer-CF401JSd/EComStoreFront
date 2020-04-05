@@ -22,7 +22,6 @@ const Login = ({ auth, logout, login, jwtLogin }) => {
   const { register, handleSubmit, reset } = useForm()
 
   const onSubmit = async data => {
-    console.log('data',data)
     login(data.username, data.password);
     reset()
   }

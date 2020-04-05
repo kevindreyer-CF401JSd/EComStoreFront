@@ -21,4 +21,8 @@ E-Commerce StoreFront app using React and Redux
 
 ## Application Screen Capture
 
-![Screen Capture](screencapture.png)
+Before Login
+![Screen Capture before login](screencaptureBL.png)
+
+After Login
+![Screen Capture after login](screencaptureAL.png)
